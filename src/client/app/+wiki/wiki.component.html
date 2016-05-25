@@ -1,0 +1,10 @@
+<h2>Wiki Search</h2>
+
+<form (submit)="searchWiki()">
+  <input [(ngModel)]="term" placeholder="Search for something">
+  <button type="submit">Search</button>
+</form>
+
+<ul>
+  <li *ngFor="let result of results">{{result}}</li>
+</ul>
