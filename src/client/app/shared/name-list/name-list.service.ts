@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable, IObservable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/map';
 
@@ -20,7 +20,7 @@ export class NameListService {
    * Contains the currently pending request.
    * @type {Observable<string[]>}
    */
-  private request: Observable<string[]>;
+  private request: IObservable<string[]>;
 
   /**
    * Creates a new NameListService with the injected Http.
@@ -34,7 +34,7 @@ export class NameListService {
    * (the local names array is defined and has elements), the cached version is returned
    * @return {string[]} The Observable for the HTTP request.
    */
-  get(): Observable<string[]> {
+  get(): IObservable<string[]> {
     if (this.names && this.names.length) {
       return Observable.from([this.names]);
     }

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {JSONP_PROVIDERS} from '@angular/http';
-import {Observable} from "rxjs/Observable";
+import {IObservable} from "rxjs/Observable";
 import {WikiService} from 'ng2-example-library';
 
 @Component({
@@ -29,7 +29,7 @@ export class WikiComponent {
       });
   }
 
-  private doSearch(): Observable<any[]> { // this return type causes TypeScript error TS2322; removing it fixes it
+  private doSearch(): IObservable<any[]> { // this return type causes TypeScript error TS2322; removing it fixes it
     return this.wiki.search(this.term);
   }
 }
